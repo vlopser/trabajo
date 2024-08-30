@@ -1,0 +1,20 @@
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    path: '/grafana'
+  grafana.ini:
+    server:
+      root_url: ' http://158.42.104.43/grafana/ '
+      serve_from_sub_path: true
+
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - 'ReadWriteOnce'
+          resources:
+            requests:
+              storage: 20Gi
